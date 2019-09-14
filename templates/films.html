@@ -4,6 +4,10 @@
 <div class="jumbotron">
     <p class="lead">Resultados de la busqueda</p>
 
+{% for r in results %}
+    {{ r['Title'] }} - {{ r['Year'] }}<br> 
+    <img src="{{ r['Poster'] }}" alt="{{ r['Title'] }}"><br><br><br>
+{% endfor %}    
 </div>
 
 {% endblock %}

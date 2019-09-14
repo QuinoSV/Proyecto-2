@@ -7,12 +7,14 @@
     <hr class="my-4">
     <p>Introduce la/s palabra/s clave del titulo que quieres consultar</p>
     <div class="row">
-        <div class="col-10">
-            <input class="form-control" type="text" placeholder="Titulo...">
-        </div>
-        <div class="col">
-            <a class="btn btn-primary btn-block" href="{{ url_for('buscaPeliculas') }}" role="button">Buscar</a>
-        </div>
+        <form action="{{ url_for('buscaPeliculas') }}">
+            <div class="col-10">
+                <input class="form-control" type="text" name="buscar" placeholder="Titulo...">
+            </div>
+            <div class="col">
+                <input type="submit" value="Buscar" class="btn btn-primary btn-block">
+            </div>
+        </form>
     </div>
     
 </div>
