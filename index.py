@@ -34,7 +34,7 @@ def buscaPeliculas():
     film_results = json_api_response["Search"]
 
     # Renderizamos la vista con los resultados de la búsqueda
-    return render_template('films.html', results = film_results, buscar = buscar)
+    return render_template('films.html', results = film_results)
 
 @app.route('/film', methods=['POST'])
 def detallePelicula():

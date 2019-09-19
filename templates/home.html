@@ -6,16 +6,18 @@
     <p class="lead">Buscador de peliculas en la API de IMDb.</p>
     <hr class="my-4">
     <p>Introduce la/s palabra/s clave del titulo que quieres consultar</p>
-    <div class="row">
+    
         <form action="{{ url_for('buscaPeliculas') }}">
-            <div class="col-10">
-                <input class="form-control" type="text" name="buscar" placeholder="Titulo...">
-            </div>
-            <div class="col">
-                <input type="submit" value="Buscar" class="btn btn-primary btn-block">
+            <div class="row">
+                <div class="col-8">
+                    <input class="form-control" type="text" name="buscar" placeholder="Titulo...">
+                </div>
+                <div class="col">
+                    <input type="submit" value="Buscar" class="btn btn-secondary btn-block">
+                </div>
             </div>
         </form>
-    </div>
+    
     
 </div>
 
