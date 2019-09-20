@@ -16,7 +16,7 @@ def about():
 
 @app.route('/films')
 def buscaPeliculas():
-    
+   
     # obtenemos el valor a buscar
     buscar = request.args.get('buscar')
 
@@ -30,11 +30,17 @@ def buscaPeliculas():
     # Obtenemos la respuesta de la api con la url formada
     json_api_response = requests.get(url).json()
 
+
     # Sacamos las películas del objeto
     film_results = json_api_response["Search"]
-
+    response = json_api_response["Response"]
+    print(response)
+    
     # Renderizamos la vista con los resultados de la búsqueda
-    return render_template('films.html', results = film_results)
+    return render_template('films.html', results = film_results, response = response)
+        
+ 
+        
 
 @app.route('/film', methods=['POST'])
 def detallePelicula():
