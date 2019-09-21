@@ -2,47 +2,30 @@
 
    
 {% block content %}
-<!-- <div class="jumbotron"> -->
-    <!--<p class="lead">Resultados de la busqueda</p>-->
-   
-
-    {% for r in results %}
-    <style>
-            .container{
-                height: 100%;
-                width: 100%;
-                background-color: #ffffff;
-                display: grid;
-                height: 100%;
-                grid-template-columns: 18% 18% 18% 18% 18%;
-                grid-gap: 27px;
-            }
+<div class="jumbotron">
+    <p class="lead">Resultados de la busqueda</p>
     
-    </style>
-    
-        <form action="{{ url_for('detallePelicula') }}" method='POST'>
-            <div class="col">
-                <div class="row">
-                    <img src="{{ r['Poster'] }}" alt="{{ r['Title'] }}" style="max-width:100%;">
-                </div>
-                <div class="row">
-                    <p class="font-weight-bold text-truncate">{{ r['Title'] }}</p>
-                </div>
-                <div class="row">
-                    <p class="text-align-start font-size-8">{{ r['Year'] }}</p>
-                </div>
-                <div class="row">
+    <div class="container-films">
+        {% for r in results %}
+                <form action="{{ url_for('detallePelicula') }}" method='POST'>
+                    <div class="poster-mini">
+                        <img src="{{ r['Poster'] }}" alt="{{ r['Title'] }}" style="max-width:100%;">
+                    </div>
+                    <div class="titles">
+                        <p class="font-weight-bold text-truncate">{{ r['Title'] }}</p>
+                    </div>
+                    <div class="titles">
+                        <p class="text-align-start font-size-8">{{ r['Year'] }}</p>
+                    </div>
+                    <div class="button-details">
                         <input class="btn btn-secondary btn-sm" type="submit" value="Detalles">
-                        <input class="form-control form-control-sm" type="text" name="imdbID" value="{{ r['imdbID'] }}" style="visibility:hidden">
-                </div>
-                   
-                    
-                
-            </div>
-            
-        </form>
-    {% endfor %}
-
-<!-- </div> -->
+                        <input class="form-control form-control-sm" type="hidden" name="imdbID" value="{{ r['imdbID'] }}">
+                    </div>
+                </form>
+        {% else %}
+        <p class="lead">No hay resultados para la busqueda</p>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

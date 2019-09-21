@@ -19,6 +19,8 @@ def buscaPeliculas():
    
     # obtenemos el valor a buscar
     buscar = request.args.get('buscar')
+    if buscar == '':
+        return render_template('home.html')
 
     # formamos la url de búsqueda con la variable a buscar
     config = configparser.ConfigParser()
@@ -30,14 +32,11 @@ def buscaPeliculas():
     # Obtenemos la respuesta de la api con la url formada
     json_api_response = requests.get(url).json()
 
-
     # Sacamos las películas del objeto
     film_results = json_api_response["Search"]
-    response = json_api_response["Response"]
-    print(response)
     
     # Renderizamos la vista con los resultados de la búsqueda
-    return render_template('films.html', results = film_results, response = response)
+    return render_template('films.html', results = film_results)
         
  
         

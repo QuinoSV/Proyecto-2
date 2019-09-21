@@ -11,7 +11,35 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+            .container-films{
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 18% 18% 18% 18% 18%;
+                grid-gap: 25px;
+            }
+            
+            .poster-mini{
+                height: 300px;
+            }
+
+            .titles{
+                height: 30px;
+                text-align: initial;
+                font-size: 1em;
+                font-size-adjust: inherit;
+            }
+
+            .button-details{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-gap: 25px;
+            }
+
     
+    </style>
 </head>
 
 <body>
