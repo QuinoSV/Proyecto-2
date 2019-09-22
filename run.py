@@ -33,10 +33,13 @@ def buscaPeliculas():
     json_api_response = requests.get(url).json()
 
     # Sacamos las películas del objeto
-    film_results = json_api_response["Search"]
+    response = json_api_response["Response"]
+    film_results = []
+    if response == "True":
+        film_results = json_api_response["Search"]
     
     # Renderizamos la vista con los resultados de la búsqueda
-    return render_template('films.html', results = film_results)
+    return render_template('films.html', results = film_results, response = response)
         
  
         
